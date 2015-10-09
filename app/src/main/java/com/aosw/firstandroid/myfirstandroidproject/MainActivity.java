@@ -14,6 +14,7 @@ import com.aosw.firstandroid.myfirstandroidproject.utilities.ApplicationResource
 import com.aosw.firstandroid.myfirstandroidproject.utilities.CustomeParam;
 import com.aosw.firstandroid.myfirstandroidproject.utilities.HttpUtils;
 import com.aosw.firstandroid.myfirstandroidproject.utilities.SecurityHelper;
+import com.aosw.firstandroid.myfirstandroidproject.utilities.TextViewActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -34,59 +35,64 @@ public class MainActivity extends AppCompatActivity {
 
     private ApplicationResource myAppResource;
 
+    private Button mainButtonTextView;
+    private Button mainButtonEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        btn = (Button) this.findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                CustomeParam param = new CustomeParam();
-                try {
-                    param.putParam("pwd", SecurityHelper.getMD5FromString("123qwe"), true);
-                } catch (Exception ex) {
-
-                }
-                param.putParam("mobile", "13946011602", true);
-
-                AsyncHttpClient client = new AsyncHttpClient();
-
-                client.get(MainActivity.this, "http://www.68idc.cn/help/uploads/allimg/130810/0F314T39_0.png", param.GetRequestParam(), new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-
-                        InputStream inputStream=new ByteArrayInputStream(responseBody,0,0);
-
-                        HttpUtils.saveImageToDisk(inputStream);
-
-                        Log.i("headers", headers.toString());
-
-                        String strJsonData = null;
-
-                        try {
-                            strJsonData = new String(responseBody, "UTF-8");
-
-
-                            Log.i("ResponseBody", strJsonData);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        Log.i("返回的结果", strJsonData);
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-                        Log.e("错误", error.toString());
-                    }
-                });
-            }
-        });
+        // 初始化控件
+        initializeControls();
+//
+//        btn = (Button) this.findViewById(R.id.button);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                CustomeParam param = new CustomeParam();
+//                try {
+//                    param.putParam("pwd", SecurityHelper.getMD5FromString("123qwe"), true);
+//                } catch (Exception ex) {
+//
+//                }
+//                param.putParam("mobile", "13946011602", true);
+//
+//                AsyncHttpClient client = new AsyncHttpClient();
+//
+//                client.get(MainActivity.this, "http://www.68idc.cn/help/uploads/allimg/130810/0F314T39_0.png", param.GetRequestParam(), new AsyncHttpResponseHandler() {
+//                    @Override
+//                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+//
+//                        InputStream inputStream = new ByteArrayInputStream(responseBody, 0, 0);
+//
+//                        HttpUtils.saveImageToDisk(inputStream);
+//
+//                        Log.i("headers", headers.toString());
+//
+//                        String strJsonData = null;
+//
+//                        try {
+//                            strJsonData = new String(responseBody, "UTF-8");
+//
+//
+//                            Log.i("ResponseBody", strJsonData);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                        Log.i("返回的结果", strJsonData);
+//                    }
+//
+//                    @Override
+//                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+//
+//                        Log.e("错误", error.toString());
+//                    }
+//                });
+//            }
+//        });
     }
 
 
@@ -110,5 +116,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // 初始化控件
+    private void initializeControls() {
+        // 打开TextView演示界面
+        mainButtonTextView = (Button) this.findViewById(R.id.main_button_textview);
+        mainButtonTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TextViewActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+        // 打开EditView演示界面
+        mainButtonEditText = (Button) this.findViewById(R.id.main_button_edittext);
+        mainButtonEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditTextActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
