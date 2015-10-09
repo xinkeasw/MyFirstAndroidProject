@@ -12,4 +12,6 @@
     <string name="title_activity_table">TableActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    
+    <string name="textview_marquee_text">我是跑马灯的效果啊，你看到了没有！！！我有一头小毛驴，我从来也不骑，有一天我心血来潮，骑它去赶集</string>
 </resources>
