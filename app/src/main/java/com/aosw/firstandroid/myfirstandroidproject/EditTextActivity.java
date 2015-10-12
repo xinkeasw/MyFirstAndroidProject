@@ -20,8 +20,10 @@ import java.util.Random;
 public class EditTextActivity extends Activity {
 
     private EditText editTextFirst;
-
     private Button editTextFirstButton;
+
+    private EditText editTextSecond;
+    private Button edittextSecondButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,26 @@ public class EditTextActivity extends Activity {
 
         // 对EditText添加图片或表情
         setupImageToEditText();
+        // 设置EditText的输入内容
+        setEdittextInput();
+
+    }
+
+    // 设置EditText的输入内容
+    private void setEdittextInput() {
+        editTextSecond = (EditText) this.findViewById(R.id.edittext_second);
+        edittextSecondButton = (Button) this.findViewById(R.id.edittext_second_button);
+
+        edittextSecondButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String value = editTextSecond.getText().toString();
+
+                if (value == null || value.trim().equals("")) {
+                    editTextSecond.setError("请输入内容！！");
+                }
+            }
+        });
     }
 
     // 对EditText添加图片或表情
