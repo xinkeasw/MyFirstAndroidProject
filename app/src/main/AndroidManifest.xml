@@ -21,6 +21,7 @@
         <activity android:name=".TableLayoutActivity"></activity>
         <activity android:name=".utilities.TextViewActivity"></activity>
         <activity android:name=".EditTextActivity"></activity>
+        <activity android:name=".AutoCompleteTextViewActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 
