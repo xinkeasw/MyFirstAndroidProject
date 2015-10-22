@@ -22,6 +22,7 @@
         <activity android:name=".utilities.TextViewActivity"></activity>
         <activity android:name=".EditTextActivity"></activity>
         <activity android:name=".AutoCompleteTextViewActivity"></activity>
+        <activity android:name=".ButtonActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 

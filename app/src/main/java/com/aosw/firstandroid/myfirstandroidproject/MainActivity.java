@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mainButtonTextView;
     private Button mainButtonEditText;
     private Button mainButtonAutoComplete;
+    private Button mainButtonButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +149,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AutoCompleteTextViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 打开Button按钮的焦点变化演示界面
+        mainButtonButton = (Button) this.findViewById(R.id.main_button_button);
+        mainButtonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
                 startActivity(intent);
             }
         });
