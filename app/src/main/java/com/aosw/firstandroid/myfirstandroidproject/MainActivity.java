@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mainButtonTextView;
     private Button mainButtonEditText;
+    private Button mainButtonAutoComplete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +138,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EditTextActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 打开自动完成演示界面
+        mainButtonAutoComplete = (Button) this.findViewById(R.id.main_button_autocomplete);
+        mainButtonAutoComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AutoCompleteTextViewActivity.class);
                 startActivity(intent);
             }
         });
