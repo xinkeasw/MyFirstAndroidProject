@@ -1,8 +1,16 @@
 package com.aosw.firstandroid.myfirstandroidproject;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.DynamicDrawableSpan;
+import android.text.style.ImageSpan;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,11 +31,38 @@ public class ButtonActivity extends Activity implements OnClickListener, OnTouch
     private Button buttonFirst;
     private Button buttonImage;
 
+    private Button buttonThree;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button);
 
+        setControlOne();
+
+        setControlTwo();
+    }
+
+    private void setControlTwo() {
+        buttonThree = (Button) this.findViewById(R.id.button_button_three);
+        SpannableString spannableStringLeft = new SpannableString("left");
+        Bitmap bitmapLeft = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
+
+        ImageSpan imageSpanLeft = new ImageSpan(this, bitmapLeft, DynamicDrawableSpan.ALIGN_BOTTOM);
+        spannableStringLeft.setSpan(imageSpanLeft, 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString spannableStringRight = new SpannableString("right");
+        Bitmap bitmapRight = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
+
+        ImageSpan imageSpanRight = new ImageSpan(this, bitmapRight, DynamicDrawableSpan.ALIGN_BOTTOM);
+        spannableStringRight.setSpan(imageSpanRight, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        buttonThree.append(spannableStringLeft);
+        buttonThree.append("我的按钮");
+        buttonThree.append(spannableStringRight);
+    }
+
+    private void setControlOne() {
         buttonFirst = (Button) this.findViewById(R.id.button_first);
         buttonImage = (Button) this.findViewById(R.id.button_image);
 
