@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mainButtonButton;
     private Button mainButtonRadioButton;
 
+    private Button mainButtonToggleButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,13 +167,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 打开RadioButton演示界面
-        mainButtonRadioButton=(Button)this.findViewById(R.id.main_button_radiobutton);
+        mainButtonRadioButton = (Button) this.findViewById(R.id.main_button_radiobutton);
         mainButtonRadioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RadioBurronActivity.class);
+                Intent intent = new Intent(MainActivity.this, RadioBurronActivity.class);
                 startActivity(intent);
             }
         });
+
+        // 打开ToggleButton（开关按钮）演示界面
+        mainButtonToggleButton = (Button) this.findViewById(R.id.main_button_togglebutton);
+        mainButtonToggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ToggleButtonActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
