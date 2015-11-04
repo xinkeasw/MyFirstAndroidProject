@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mainButtonEditText;
     private Button mainButtonAutoComplete;
     private Button mainButtonButton;
+    private Button mainButtonRadioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +160,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 打开RadioButton演示界面
+        mainButtonRadioButton=(Button)this.findViewById(R.id.main_button_radiobutton);
+        mainButtonRadioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,RadioBurronActivity.class);
                 startActivity(intent);
             }
         });
