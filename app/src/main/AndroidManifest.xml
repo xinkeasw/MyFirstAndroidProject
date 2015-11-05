@@ -25,6 +25,7 @@
         <activity android:name=".ButtonActivity"></activity>
         <activity android:name=".RadioBurronActivity"></activity>
         <activity android:name=".ToggleButtonActivity"></activity>
+        <activity android:name=".CheckBoxActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 

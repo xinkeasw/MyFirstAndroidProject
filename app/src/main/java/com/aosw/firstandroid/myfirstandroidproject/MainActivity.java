@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mainButtonRadioButton;
 
     private Button mainButtonToggleButton;
+    private Button mainButtonCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +183,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ToggleButtonActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 打开CheckBox演示界面
+        mainButtonCheckBox = (Button) this.findViewById(R.id.main_button_checkbox);
+        mainButtonCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CheckBoxActivity.class);
                 startActivity(intent);
             }
         });
